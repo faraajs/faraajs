@@ -1,0 +1,68 @@
+name: Pac-Man contribution graph
+
+on:
+  schedule:
+    - cron: '17 */12 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/pacman.yml'
+      - 'README.md'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pacman-contribution-graph
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    name: Generate light and dark animations
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Generate Pac-Man from contributions
+        uses: abozanona/pacman-contribution-graph@7332e1de7903ab780c3692a4127a59cc13872daa # v5.3.2
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ github.token }}
+          games: pacman
+      - name: Upload animations for publishing
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pacman-animations
+          path: |
+            dist/pacman-contribution-graph.svg
+            dist/pacman-contribution-graph-dark.svg
+          if-no-files-found: error
+          retention-days: 1
+
+  publish:
+    name: Publish profile animations
+    needs: generate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - name: Download generated animations
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5
+        with:
+          name: pacman-animations
+          path: dist
+      - name: Publish SVGs to output branch
+        uses: crazy-max/ghaction-github-pages@1d6ee9b181a81033a16bd707a1401afa978daab4 # v5.0.0
+        with:
+          target_branch: output
+          build_dir: dist
+          keep_history: true
+          allow_empty_commit: false
+          commit_message: 'chore: refresh Pac-Man contribution graph'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
