@@ -1,6 +1,6 @@
-# Faraaj Haniif Apriansyah
+# Eska
 
-Hi, I’m Faraaj, a Communication Studies student at Universitas Sultan Ageng Tirtayasa (Untirta) in Indonesia. I build Android apps, websites, and AI API integrations with AI assistance.
+Hi, I’m Eska. I build Android apps, websites, and AI API integrations with AI assistance.
 
 [Portfolio](https://faraaj.pages.dev/) · [LinkedIn](https://www.linkedin.com/in/faraaj-haniif-apriansyah-8079482a1/)
 
