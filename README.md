@@ -1,6 +1,6 @@
 # Eska
 
-Hi, I’m Eska. I build Android apps, websites, and AI API integrations with AI assistance.
+Hi, i just build things that i need for my daily life, and i can build yours.
 
 [Portfolio](https://faraaj.pages.dev/) · [LinkedIn](https://www.linkedin.com/in/faraaj-haniif-apriansyah-8079482a1/)
 
