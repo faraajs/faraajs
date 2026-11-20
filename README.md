@@ -10,6 +10,7 @@ I build Android apps that work locally.
 | --- | --- | --- |
 | [Tidy](https://github.com/faraajs/tidy) | Converts screenshots and photos to AVIF or WebP on your phone. Originals are kept by default. | [Signed APK releases](https://github.com/faraajs/tidy/releases/latest) |
 | [Expense](https://github.com/faraajs/expense) | Tracks expenses locally, including parsing supported Indonesian bank and wallet notifications. AI features are optional. | [Signed APK releases](https://github.com/faraajs/expense/releases/latest) |
+| [Brief](https://github.com/faraajs/brief) | Converts videos and voice recordings into small, pause-trimmed Opus or M4A audio on your phone for AI transcription. | [Signed APK releases](https://github.com/faraajs/brief/releases/latest) |
 
 Each repository documents its source, build instructions, permissions, and verification limits. Check Android and CPU requirements before installing.
 
